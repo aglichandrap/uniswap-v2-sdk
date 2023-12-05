@@ -1,5 +1,4 @@
-import { Currency, Percent, TradeType } from '@uniswap/sdk-core';
-import { Trade } from 'entities';
+import { Percent, Trade } from './entities';
 /**
  * Options for producing the arguments to send call to the router.
  */
@@ -60,5 +59,5 @@ export declare abstract class Router {
      * @param trade to produce call parameters for
      * @param options options for the call parameters
      */
-    static swapCallParameters(trade: Trade<Currency, Currency, TradeType>, options: TradeOptions | TradeOptionsDeadline): SwapParameters;
+    static swapCallParameters(trade: Trade, options: TradeOptions | TradeOptionsDeadline): SwapParameters;
 }

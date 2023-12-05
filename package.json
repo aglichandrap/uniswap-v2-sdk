@@ -1,17 +1,14 @@
 {
-  "name": "asnodtswap-sdk",
+  "name": "@uniswap/sdk",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "3.0.3",
   "description": "🛠 An SDK for building applications on top of Uniswap.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Uniswap/uniswap-sdk.git"
-  },
+  "repository": "https://github.com/Uniswap/uniswap-sdk.git",
   "keywords": [
     "uniswap",
     "ethereum"
@@ -25,7 +22,6 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
-    "@uniswap/sdk-core": "^4.0.9",
     "@uniswap/v2-core": "^1.0.0",
     "big.js": "^5.2.2",
     "decimal.js-light": "^2.5.0",
@@ -59,10 +55,5 @@
     "printWidth": 120,
     "semi": false,
     "singleQuote": true
-  },
-  "bugs": {
-    "url": "https://github.com/Uniswap/uniswap-sdk/issues"
-  },
-  "homepage": "https://github.com/Uniswap/uniswap-sdk#readme",
-  "author": "asnodt"
+  }
 }

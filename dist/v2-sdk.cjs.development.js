@@ -435,9 +435,9 @@ var Route = /*#__PURE__*/function () {
     var path = [wrappedInput];
 
     for (var _iterator = _createForOfIteratorHelperLoose(pairs.entries()), _step; !(_step = _iterator()).done;) {
-      var _step$value2 = _step.value,
-          i = _step$value2[0],
-          pair = _step$value2[1];
+      var _step$value = _step.value,
+          i = _step$value[0],
+          pair = _step$value[1];
       var currentInput = path[i];
       !(currentInput.equals(pair.token0) || currentInput.equals(pair.token1)) ?  invariant(false, 'PATH')  : void 0;
 
@@ -459,9 +459,9 @@ var Route = /*#__PURE__*/function () {
       var prices = [];
 
       for (var _iterator2 = _createForOfIteratorHelperLoose(this.pairs.entries()), _step2; !(_step2 = _iterator2()).done;) {
-        var _step2$value2 = _step2.value,
-            i = _step2$value2[0],
-            pair = _step2$value2[1];
+        var _step2$value = _step2.value,
+            i = _step2$value[0],
+            pair = _step2$value[1];
         prices.push(this.path[i].equals(pair.token0) ? new sdkCore.Price(pair.reserve0.currency, pair.reserve1.currency, pair.reserve0.quotient, pair.reserve1.quotient) : new sdkCore.Price(pair.reserve1.currency, pair.reserve0.currency, pair.reserve1.quotient, pair.reserve0.quotient));
       }
 
@@ -543,8 +543,8 @@ var Trade = /*#__PURE__*/function () {
       for (var i = 0; i < route.path.length - 1; i++) {
         var pair = route.pairs[i];
 
-        var _pair$getOutputAmount2 = pair.getOutputAmount(tokenAmounts[i]),
-            outputAmount = _pair$getOutputAmount2[0];
+        var _pair$getOutputAmount = pair.getOutputAmount(tokenAmounts[i]),
+            outputAmount = _pair$getOutputAmount[0];
 
         tokenAmounts[i + 1] = outputAmount;
       }
@@ -555,13 +555,13 @@ var Trade = /*#__PURE__*/function () {
       !amount.currency.equals(route.output) ?  invariant(false, 'OUTPUT')  : void 0;
       tokenAmounts[tokenAmounts.length - 1] = amount.wrapped;
 
-      for (var _i2 = route.path.length - 1; _i2 > 0; _i2--) {
-        var _pair = route.pairs[_i2 - 1];
+      for (var _i = route.path.length - 1; _i > 0; _i--) {
+        var _pair = route.pairs[_i - 1];
 
-        var _pair$getInputAmount2 = _pair.getInputAmount(tokenAmounts[_i2]),
-            inputAmount = _pair$getInputAmount2[0];
+        var _pair$getInputAmount = _pair.getInputAmount(tokenAmounts[_i]),
+            inputAmount = _pair$getInputAmount[0];
 
-        tokenAmounts[_i2 - 1] = inputAmount;
+        tokenAmounts[_i - 1] = inputAmount;
       }
 
       this.inputAmount = sdkCore.CurrencyAmount.fromFractionalAmount(route.input, tokenAmounts[0].numerator, tokenAmounts[0].denominator);
@@ -677,9 +677,9 @@ var Trade = /*#__PURE__*/function () {
       try {
         ;
 
-        var _pair$getOutputAmount3 = pair.getOutputAmount(amountIn);
+        var _pair$getOutputAmount2 = pair.getOutputAmount(amountIn);
 
-        amountOut = _pair$getOutputAmount3[0];
+        amountOut = _pair$getOutputAmount2[0];
       } catch (error) {
         // input too low
         if (error.isInsufficientInputAmountError) {
@@ -766,9 +766,9 @@ var Trade = /*#__PURE__*/function () {
       try {
         ;
 
-        var _pair$getInputAmount3 = pair.getInputAmount(amountOut);
+        var _pair$getInputAmount2 = pair.getInputAmount(amountOut);
 
-        amountIn = _pair$getInputAmount3[0];
+        amountIn = _pair$getInputAmount2[0];
       } catch (error) {
         // not enough liquidity in this pair
         if (error.isInsufficientReservesError) {
@@ -902,4 +902,4 @@ exports.Trade = Trade;
 exports.computePairAddress = computePairAddress;
 exports.inputOutputComparator = inputOutputComparator;
 exports.tradeComparator = tradeComparator;
-//# sourceMappingURL=asnodtswap-sdk.cjs.development.js.map
+//# sourceMappingURL=v2-sdk.cjs.development.js.map
