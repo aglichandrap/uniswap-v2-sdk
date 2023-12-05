@@ -1,14 +1,12 @@
-import { ChainId } from '../constants';
-import { Currency } from './currency';
-import { Token } from './token';
+import { Currency, Price, Token } from '@uniswap/sdk-core';
 import { Pair } from './pair';
-import { Price } from './fractions/price';
-export declare class Route {
+export declare class Route<TInput extends Currency, TOutput extends Currency> {
     readonly pairs: Pair[];
     readonly path: Token[];
-    readonly input: Currency;
-    readonly output: Currency;
-    readonly midPrice: Price;
-    constructor(pairs: Pair[], input: Currency, output?: Currency);
-    get chainId(): ChainId;
+    readonly input: TInput;
+    readonly output: TOutput;
+    constructor(pairs: Pair[], input: TInput, output: TOutput);
+    private _midPrice;
+    get midPrice(): Price<TInput, TOutput>;
+    get chainId(): number;
 }
